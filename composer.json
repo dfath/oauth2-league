@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.0.8",
         "javiereguiluz/easyadmin-bundle": "^1.17",
+        "league/oauth2-server": "^6.0",
         "symfony/console": "^3.3",
         "symfony/framework-bundle": "^3.3",
         "symfony/profiler-pack": "^1.0",
