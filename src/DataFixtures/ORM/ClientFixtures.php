@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures\ORM;
 
-use App\Entity\Scope;
+use App\Entity\Client;
 use App\Utility\Slugger;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ScopeFixtures extends Fixture
+class ClientFixtures extends Fixture
 {
 
     private $entityManager;
@@ -24,12 +24,18 @@ class ScopeFixtures extends Fixture
 
     private function insert(Array $item)
     {
+        $name = isset($item['name']) ? $item['name'] : '';
         $identifier = isset($item['identifier']) ? $item['identifier'] : '';
-        $description = isset($item['description']) ? $item['description'] : '';
+        $secret = isset($item['secret']) ? $item['secret'] : '';
+        $redirectUri = isset($item['redirectUri']) ? $item['redirectUri'] : '';
+        $status = isset($item['status']) ? $item['status'] : '';
 
-        $instance = new Scope();
+        $instance = new Client();
+        $instance->setName($name);
         $instance->setIdentifier($identifier);
-        $instance->setDescription($description);
+        $instance->setSecret($secret);
+        $instance->setRedirectUri($redirectUri);
+        $instance->setStatus($status);
         $instance->setCreatedAt(new \DateTime);
         $instance->setUpdatedAt(new \DateTime);
 
@@ -42,7 +48,7 @@ class ScopeFixtures extends Fixture
 
     private function getData()
     {
-        $data = file_get_contents(__DIR__.'/data/scopes.json');
+        $data = file_get_contents(__DIR__.'/data/clients.json');
         return json_decode($data, true);
     }
 }
