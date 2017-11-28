@@ -4,13 +4,13 @@
         "identifier": "33r7xj5vy6sk488gkkkw8w88cosgocwk4o4oc8owgg0o4kkckw",
         "secret": "1gtzg4oqxkkgcowogo4cc88k84484g84w4sskk08c0oc0wsok0",
         "redirectUri": "http://localhost:8000/oauth",
-        "status": true
+        "status": 1
     },
     {
         "name": "pusaka",
         "identifier": "3slp9v9m8iw488sg08wk80ss0s4go4sc8kgkww84g40owk8wk0",
         "secret": "2qye7wrak4is48w4og0wgcggkkwko0kkwk4wg4c8occw88kk0w",
         "redirectUri": "http://localhost:9000/oauth",
-        "status": true
+        "status": 1
     }
 ]

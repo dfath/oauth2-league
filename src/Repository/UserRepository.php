@@ -19,7 +19,7 @@ class UserRepository implements UserRepositoryInterface
     ) {
         $user = $this->getEntityManager()
                     ->getRepository(User::class)
-                    ->findOneByName($username);
+                    ->findOneByUsername($username);
 
         return $user;
     }

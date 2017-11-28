@@ -62,7 +62,7 @@ class Client implements ClientEntityInterface
     protected $redirectUri;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint")
      */
     protected $status;
 

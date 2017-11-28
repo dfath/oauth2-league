@@ -1,26 +1,26 @@
 [
     {
-        "name": "badu",
+        "username": "badu",
         "email": "badu@example.com",
         "password": "password",
-        "status": true
+        "status": 1
     },
     {
-        "name": "budi",
+        "username": "budi",
         "email": "budiawan@gmail.co.id",
         "password": "password",
-        "status": true
+        "status": 1
     },
     {
-        "name": "bona",
+        "username": "bona",
         "email": "bona@yahoo.com",
         "password": "password",
-        "status": true
+        "status": 1
     },
     {
-        "name": "boni",
+        "username": "boni",
         "email": "boni@yahoo.com",
         "password": "password",
-        "status": true
+        "status": 1
     }
 ]

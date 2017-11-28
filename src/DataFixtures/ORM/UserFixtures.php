@@ -24,13 +24,13 @@ class UserFixtures extends Fixture
 
     private function insert(Array $item)
     {
-        $name = isset($item['name']) ? $item['name'] : '';
+        $username = isset($item['username']) ? $item['username'] : '';
         $email = isset($item['email']) ? $item['email'] : '';
         $password = isset($item['password']) ? $item['password'] : '';
         $status = isset($item['status']) ? $item['status'] : '';
 
         $instance = new User();
-        $instance->setName($name);
+        $instance->setUsername($username);
         $instance->setEmail($email);
         $instance->setPassword($password);
         $instance->setStatus($status);
@@ -40,7 +40,7 @@ class UserFixtures extends Fixture
         $this->entityManager->persist($instance);
         $this->entityManager->flush();
 
-        $slug = Slugger::slugify($name);
+        $slug = Slugger::slugify($username);
         $this->addReference($slug, $instance);
     }
 
