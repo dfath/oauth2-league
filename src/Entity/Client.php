@@ -191,40 +191,6 @@ class Client implements ClientEntityInterface
     }
 
     /**
-     * Get the value of Name
-     *
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get the value of Identifier
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Set the value of Identifier
-     *
-     * @param mixed identifier
-     *
-     * @return self
-     */
-    public function setIdentifier($identifier)
-    {
-        $this->identifier = $identifier;
-
-        return $this;
-    }
-
-    /**
      * Get the value of Secret
      *
      * @return mixed
@@ -246,16 +212,6 @@ class Client implements ClientEntityInterface
         $this->secret = $secret;
 
         return $this;
-    }
-
-    /**
-     * Get the value of Redirect Uri
-     *
-     * @return mixed
-     */
-    public function getRedirectUri()
-    {
-        return $this->redirectUri;
     }
 
     /**

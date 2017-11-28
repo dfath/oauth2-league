@@ -1,0 +1,22 @@
+[
+    {
+        "identifier": "client_credetials",
+        "description": "Client Credentials Grant"
+    },
+    {
+        "identifier": "authorization_code",
+        "description": "Authorization Code Grant"
+    },
+    {
+        "identifier": "password",
+        "description": "Password Grant"
+    },
+    {
+        "identifier": "implicit",
+        "description": "Implicit Grant"
+    },
+    {
+        "identifier": "refresh_token",
+        "description": "Refresh Token"
+    }
+]

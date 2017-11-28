@@ -1,0 +1,10 @@
+[
+    {
+        "identifier": "portal_pmb",
+        "description": "Portal PMB"
+    },
+    {
+        "identifier": "master",
+        "description": "Data master"
+    }
+]

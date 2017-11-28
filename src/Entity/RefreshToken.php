@@ -80,54 +80,6 @@ class RefreshToken implements RefreshTokenEntityInterface
     }
 
     /**
-     * Get the value of Identifier
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Set the value of Identifier
-     *
-     * @param mixed identifier
-     *
-     * @return self
-     */
-    public function setIdentifier($identifier)
-    {
-        $this->identifier = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Access Token
-     *
-     * @return mixed
-     */
-    public function getAccessToken()
-    {
-        return $this->accessToken;
-    }
-
-    /**
-     * Set the value of Access Token
-     *
-     * @param mixed accessToken
-     *
-     * @return self
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-
-        return $this;
-    }
-
-    /**
      * Get the value of Revoked
      *
      * @return mixed

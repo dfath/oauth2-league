@@ -228,30 +228,6 @@ class Scope implements ScopeEntityInterface
     }
 
     /**
-     * Get the value of Identifier
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Set the value of Identifier
-     *
-     * @param mixed identifier
-     *
-     * @return self
-     */
-    public function setIdentifier($identifier)
-    {
-        $this->identifier = $identifier;
-
-        return $this;
-    }
-
-    /**
      * Get the value of Description
      *
      * @return mixed

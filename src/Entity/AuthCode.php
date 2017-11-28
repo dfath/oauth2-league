@@ -104,78 +104,6 @@ class AuthCode implements AuthCodeEntityInterface
     }
 
     /**
-     * Get the value of Scopes
-     *
-     * @return mixed
-     */
-    public function getScopes()
-    {
-        return $this->scopes;
-    }
-
-    /**
-     * Set the value of Scopes
-     *
-     * @param mixed scopes
-     *
-     * @return self
-     */
-    public function setScopes($scopes)
-    {
-        $this->scopes = $scopes;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Identifier
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Set the value of Identifier
-     *
-     * @param mixed identifier
-     *
-     * @return self
-     */
-    public function setIdentifier($identifier)
-    {
-        $this->identifier = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Client
-     *
-     * @return mixed
-     */
-    public function getClient()
-    {
-        return $this->client;
-    }
-
-    /**
-     * Set the value of Client
-     *
-     * @param mixed client
-     *
-     * @return self
-     */
-    public function setClient($client)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
      * Get the value of User
      *
      * @return mixed
@@ -219,30 +147,6 @@ class AuthCode implements AuthCodeEntityInterface
     public function setRevoked($revoked)
     {
         $this->revoked = $revoked;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Redirect Uri
-     *
-     * @return mixed
-     */
-    public function getRedirectUri()
-    {
-        return $this->redirectUri;
-    }
-
-    /**
-     * Set the value of Redirect Uri
-     *
-     * @param mixed redirectUri
-     *
-     * @return self
-     */
-    public function setRedirectUri($redirectUri)
-    {
-        $this->redirectUri = $redirectUri;
 
         return $this;
     }
