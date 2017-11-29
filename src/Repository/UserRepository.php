@@ -39,9 +39,7 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
 
     public function getUserEntityByUserIdentifier($identifier)
     {
-        return $this->getEntityManager()
-                    ->getRepository(User::class)
-                    ->findOneByEmail($identifier);
+        return $this->findOneByEmail($identifier);
     }
 
     public function loadUserByUsername($username)
