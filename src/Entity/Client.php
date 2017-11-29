@@ -47,7 +47,7 @@ class Client implements ClientEntityInterface
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $identifier;
 

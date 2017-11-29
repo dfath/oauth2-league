@@ -32,7 +32,7 @@ class AuthCode implements AuthCodeEntityInterface
     protected $scopes;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $identifier;
 

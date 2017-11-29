@@ -4,9 +4,11 @@ namespace App\Repository;
 
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\UserRepositoryInterface;
+use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
+use Doctrine\ORM\EntityRepository;
 use App\Entity\User;
 
-class UserRepository implements UserRepositoryInterface
+class UserRepository extends EntityRepository implements UserRepositoryInterface, UserLoaderInterface
 {
     /**
      * {@inheritdoc}
@@ -17,11 +19,22 @@ class UserRepository implements UserRepositoryInterface
         $grantType,
         ClientEntityInterface $client
     ) {
-        $user = $this->getEntityManager()
-                    ->getRepository(User::class)
-                    ->findOneByUsername($username);
+        $user = $this->loadUserByUsername($username);
+        if (!$user) {
+            return;
+        }
+        $encoderFactory = $this->get('security.encoder_factory');
+        $passwordEncoder = $encoderFactory->getEncoder($user);
+        $isPasswordValid = $encoder->isPasswordValid($user->getPassword(), $password, $user->getSalt());
 
-        return $user;
+        if (!$isPasswordValid) {
+            return;
+        }
+
+        $userEntity = new User();
+        $userEntity->setIdentifier($user->getIdentifier());
+
+        return $userEntity;
     }
 
     public function getUserEntityByUserIdentifier($identifier)
@@ -29,5 +42,15 @@ class UserRepository implements UserRepositoryInterface
         return $this->getEntityManager()
                     ->getRepository(User::class)
                     ->findOneByEmail($identifier);
+    }
+
+    public function loadUserByUsername($username)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.username = :username OR u.email = :email')
+            ->setParameter('username', $username)
+            ->setParameter('email', $username)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
