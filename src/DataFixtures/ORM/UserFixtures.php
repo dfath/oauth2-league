@@ -12,8 +12,12 @@ class UserFixtures extends Fixture
 
     private $entityManager;
 
+    private $passwordEncoder;
+
     public function load(ObjectManager $manager)
     {
+        $this->passwordEncoder = $this->container->get('security.password_encoder');
+
         $this->entityManager = $manager;
 
         $data = $this->getData();
@@ -26,12 +30,15 @@ class UserFixtures extends Fixture
     {
         $username = isset($item['username']) ? $item['username'] : '';
         $email = isset($item['email']) ? $item['email'] : '';
-        $password = isset($item['password']) ? $item['password'] : '';
+        $plainPassword = isset($item['password']) ? $item['password'] : '';
         $status = isset($item['status']) ? $item['status'] : '';
 
         $instance = new User();
         $instance->setUsername($username);
         $instance->setEmail($email);
+
+        $password = $this->passwordEncoder->encodePassword($instance, $plainPassword);
+
         $instance->setPassword($password);
         $instance->setStatus($status);
         $instance->setCreatedAt(new \DateTime);

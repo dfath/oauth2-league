@@ -1,6 +1,6 @@
 [
     {
-        "identifier": "client_credetials",
+        "identifier": "client_credentials",
         "description": "Client Credentials Grant"
     },
     {
