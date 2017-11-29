@@ -44,8 +44,7 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenRepos
     {
         $em = $this->getEntityManager();
         // revoke the access token
-        $accessToken = $em->getRepository(AccessToken::class)
-                          ->findOneByIdentifier($tokenId);
+        $accessToken = $this->findOneByIdentifier($tokenId);
         $accessToken->setRevoked(true);
         $accessToken->setUpdatedAt(new \DateTime);
 
@@ -60,8 +59,7 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenRepos
     {
         $em = $this->getEntityManager();
         // Access token revoked status
-        $accessToken = $em->getRepository(AccessToken::class)
-                          ->findOneByIdentifier($tokenId);
+        $accessToken = $this->findOneByIdentifier($tokenId);
         if ($accessToken) {
             return $accessToken->getRevoked();
         }

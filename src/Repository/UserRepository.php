@@ -25,9 +25,9 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
         }
         $encoderFactory = $this->get('security.encoder_factory');
         $passwordEncoder = $encoderFactory->getEncoder($user);
-        $isPasswordValid = $encoder->isPasswordValid($user->getPassword(), $password, $user->getSalt());
+        $passwordValid = $passwordEncoder->isPasswordValid($user->getPassword(), $password, $user->getSalt());
 
-        if (!$isPasswordValid) {
+        if (!$passwordValid) {
             return;
         }
 

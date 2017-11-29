@@ -38,8 +38,7 @@ class RefreshTokenRepository implements RefreshTokenRepositoryInterface
     {
         $em = $this->getEntityManager();
         // revoke the refresh token in a database
-        $refreshToken = $em->getRepository(RefreshToken::class)
-                           ->findOneByIdentifier($tokenId);
+        $refreshToken = $this->findOneByIdentifier($tokenId);
         $refreshToken->setRevoked(true);
         $refreshToken->setUpdatedAt(new \DateTime);
 
@@ -53,8 +52,7 @@ class RefreshTokenRepository implements RefreshTokenRepositoryInterface
     public function isRefreshTokenRevoked($tokenId)
     {
         $em = $this->getEntityManager();
-        $refreshToken = $em->getRepository(RefreshToken::class)
-                           ->findOneByIdentifier($tokenId);
+        $refreshToken = $this->findOneByIdentifier($tokenId);
         if ($refreshToken) {
             return $refreshToken->getRevoked();
         }

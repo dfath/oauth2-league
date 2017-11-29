@@ -20,9 +20,7 @@ class ClientRepository implements ClientRepositoryInterface
      */
     public function findActive($clientIdentifier)
     {
-        return $this->getEntityManager()
-                    ->getRepository(Client::class)
-                    ->findOneByIdentifier($clientIdentifier);
+        return $this->findOneByIdentifier($clientIdentifier);
     }
 
     /**

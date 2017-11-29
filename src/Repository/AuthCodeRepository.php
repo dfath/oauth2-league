@@ -41,8 +41,7 @@ class AuthCodeRepository implements AuthCodeRepositoryInterface
         // revoke the auth code in a database
         $em = $this->getEntityManager();
 
-        $authCode = $em->getRepository(AuthCode::class)
-                       ->findOneByIdentifier($codeId);
+        $authCode = $this->findOneByIdentifier($codeId);
         $authCode->setRevoked(true);
         $authCode->setUpdatedAt(new \DateTime);
 
@@ -57,8 +56,7 @@ class AuthCodeRepository implements AuthCodeRepositoryInterface
     {
         $em = $this->getEntityManager();
 
-        $authCode = $em->getRepository(AuthCode::class)
-                       ->findOneByIdentifier($codeId);
+        $authCode = $this->findOneByIdentifier($codeId);
         if ($authCode) {
           return $authCode->getRevoked();
         }

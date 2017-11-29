@@ -17,9 +17,7 @@ class ScopeRepository implements ScopeRepositoryInterface
    */
     public function hasScope($scopeIdentifier)
     {
-        $scopeRecord = $this->getEntityManager()
-                            ->getRepository(Scope::class)
-                            ->findOneByIdentifier($scopeIdentifier);
+        $scopeRecord = $this->findOneByIdentifier($scopeIdentifier);
         return !empty($scopeRecord);
     }
 
