@@ -319,5 +319,8 @@
             "version": "4.0",
             "ref": "576d653444dade07f272c889d52fe4594caa4fc3"
         }
+    },
+    "zendframework/zend-diactoros": {
+        "version": "1.6.1"
     }
 }
