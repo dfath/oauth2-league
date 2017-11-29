@@ -322,5 +322,8 @@
     },
     "zendframework/zend-diactoros": {
         "version": "1.6.1"
+    },
+    "symfony/psr-http-message-bridge": {
+        "version": "v1.0.0"
     }
 }
