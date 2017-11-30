@@ -40,6 +40,7 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
     public function revokeRefreshToken($tokenId)
     {
         $em = $this->getEntityManager();
+
         // revoke the refresh token in a database
         $refreshToken = $this->findOneByIdentifier($tokenId);
         $refreshToken->setRevoked(true);
@@ -54,8 +55,8 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
      */
     public function isRefreshTokenRevoked($tokenId)
     {
-        $em = $this->getEntityManager();
         $refreshToken = $this->findOneByIdentifier($tokenId);
+
         if ($refreshToken) {
             return $refreshToken->getRevoked();
         }
@@ -67,6 +68,7 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
      */
     public function getNewRefreshToken()
     {
+
         return new RefreshToken();
     }
 }

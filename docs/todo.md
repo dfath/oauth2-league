@@ -4,3 +4,4 @@
 - encryptionKey, privateKey
 - Buat service DiactorosFactory, psr7Factory, HttpFoundationFactory
 - Buat service AuthorizationServer, PasswordGrant, RefreshTokenGrant
+- Format response error

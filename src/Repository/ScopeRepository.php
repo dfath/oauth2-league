@@ -10,18 +10,6 @@ use App\Entity\Scope;
 class ScopeRepository extends EntityRepository implements ScopeRepositoryInterface
 {
 
-  /**
-   * Determine if the given scope has been defined.
-   *
-   * @param  string  $id
-   * @return bool
-   */
-    public function hasScope($scopeIdentifier)
-    {
-        $scopeRecord = $this->findOneByIdentifier($scopeIdentifier);
-        return !empty($scopeRecord);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -30,14 +18,6 @@ class ScopeRepository extends EntityRepository implements ScopeRepositoryInterfa
 
         return $this->findOneByIdentifier($scopeIdentifier);
 
-        if (!$this->hasScope($scopeIdentifier)) {
-            return;
-        }
-
-        $scope = new Scope();
-        $scope->setIdentifier($scopeIdentifier);
-
-        return $scope;
     }
 
     /**

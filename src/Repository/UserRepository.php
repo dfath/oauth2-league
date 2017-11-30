@@ -21,7 +21,6 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
     ) {
         $user = $this->loadUserByUsername($username);
         if (!$user) {
-            dump('a');
             return;
         }
 

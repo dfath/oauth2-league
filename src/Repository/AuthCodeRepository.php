@@ -55,8 +55,6 @@ class AuthCodeRepository extends EntityRepository implements AuthCodeRepositoryI
      */
     public function isAuthCodeRevoked($codeId)
     {
-        $em = $this->getEntityManager();
-
         $authCode = $this->findOneByIdentifier($codeId);
         if ($authCode) {
           return $authCode->getRevoked();

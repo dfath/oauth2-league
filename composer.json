@@ -8,6 +8,7 @@
         "league/oauth2-server": "^6.0",
         "sensiolabs/security-checker": "^4.1",
         "symfony/console": "^3.3",
+        "symfony/expression-language": "^4.0",
         "symfony/framework-bundle": "^3.3",
         "symfony/phpunit-bridge": "^3.3",
         "symfony/profiler-pack": "^1.0",
