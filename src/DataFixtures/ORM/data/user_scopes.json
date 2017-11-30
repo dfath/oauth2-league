@@ -1,0 +1,26 @@
+[
+    {
+        "user": "badu",
+        "scope": "basic"
+    },
+    {
+        "user": "badu",
+        "scope": "master"
+    },
+    {
+        "user": "badu",
+        "scope": "portal-pmb"
+    },
+    {
+        "user": "budi",
+        "scope": "basic"
+    },
+    {
+        "user": "bona",
+        "scope": "basic"
+    },
+    {
+        "user": "boni",
+        "scope": "basic"
+    }
+]

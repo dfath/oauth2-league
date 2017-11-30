@@ -6,5 +6,9 @@
     {
         "identifier": "master",
         "description": "Data master"
+    },
+    {
+        "identifier": "basic",
+        "description": "Basic details about you"
     }
 ]

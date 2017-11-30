@@ -112,6 +112,18 @@ class User implements UserEntityInterface, UserInterface, \Serializable
     }
 
     /**
+     * Add new grant
+     *
+     * @return mixed
+     */
+    public function addGrant(Grant $grant)
+    {
+        $this->grants->add($grant);
+
+        return $this;
+    }
+
+    /**
      * Get the value of Grants
      *
      * @return mixed
@@ -136,6 +148,18 @@ class User implements UserEntityInterface, UserInterface, \Serializable
     }
 
     /**
+     * Add new scope
+     *
+     * @return mixed
+     */
+    public function addScope(Scope $scope)
+    {
+        $this->scopes->add($scope);
+
+        return $this;
+    }
+
+    /**
      * Get the value of Scopes
      *
      * @return mixed
@@ -155,6 +179,18 @@ class User implements UserEntityInterface, UserInterface, \Serializable
     public function setScopes($scopes)
     {
         $this->scopes = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Add new client
+     *
+     * @return mixed
+     */
+    public function addClient(Client $client)
+    {
+        $this->clients->add($client);
 
         return $this;
     }

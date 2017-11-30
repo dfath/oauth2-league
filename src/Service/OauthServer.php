@@ -8,6 +8,7 @@ use League\OAuth2\Server\Grant\PasswordGrant;
 use League\OAuth2\Server\Grant\RefreshTokenGrant;
 use App\Repository\AccessTokenRepository;
 use App\Repository\ClientRepository;
+use App\Repository\UserRepository;
 use App\Repository\RefreshTokenRepository;
 use App\Repository\ScopeRepository;
 
@@ -56,7 +57,7 @@ class OauthServer
         $refreshTokenGrant = new RefreshTokenGrant($refreshTokenRepository);
         $refreshTokenGrant->setRefreshTokenTTL(new \DateInterval('P1M'));
 
-        $server->enableGrantType(
+        $this->server->enableGrantType(
             $refreshTokenGrant,
             new \DateInterval('PT1H')
         );

@@ -1,0 +1,46 @@
+[
+    {
+        "user": "badu",
+        "grant": "password"
+    },
+    {
+        "user": "badu",
+        "grant": "refresh-token"
+    },
+    {
+        "user": "badu",
+        "grant": "client-credentials"
+    },
+    {
+        "user": "badu",
+        "grant": "authorization-code"
+    },
+    {
+        "user": "badu",
+        "grant": "implicit"
+    },
+    {
+        "user": "budi",
+        "grant": "password"
+    },
+    {
+        "user": "budi",
+        "grant": "refresh-token"
+    },
+    {
+        "user": "bona",
+        "grant": "password"
+    },
+    {
+        "user": "bona",
+        "grant": "refresh-token"
+    },
+    {
+        "user": "boni",
+        "grant": "password"
+    },
+    {
+        "user": "boni",
+        "grant": "refresh-token"
+    }
+]

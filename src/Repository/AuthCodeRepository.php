@@ -2,11 +2,12 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 use League\OAuth2\Server\Repositories\AuthCodeRepositoryInterface;
 use App\Entity\AuthCode;
 
-class AuthCodeRepository implements AuthCodeRepositoryInterface
+class AuthCodeRepository extends EntityRepository implements AuthCodeRepositoryInterface
 {
     /**
      * {@inheritdoc}

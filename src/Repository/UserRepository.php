@@ -23,11 +23,9 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
         if (!$user) {
             return;
         }
-        $encoderFactory = $this->get('security.encoder_factory');
-        $passwordEncoder = $encoderFactory->getEncoder($user);
-        $passwordValid = $passwordEncoder->isPasswordValid($user->getPassword(), $password, $user->getSalt());
 
-        if (!$passwordValid) {
+        // Verifies that a password matches a hash BCrypt
+        if (!password_verify($user->getPassword(), $password)) {
             return;
         }
 
@@ -39,7 +37,7 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
 
     public function getUserEntityByUserIdentifier($identifier)
     {
-        return $this->findOneByEmail($identifier);
+        return $this->loadUserByUsername($identifier);
     }
 
     public function loadUserByUsername($username)

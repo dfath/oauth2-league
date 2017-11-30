@@ -20,10 +20,40 @@ services:
         resource: '../src/*'
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
-        exclude: '../src/{DataFixtures,Entity,Migrations,Tests}'
+        # exclude: '../src/{DataFixtures,Entity,Migrations,Tests}'
 
     # controllers are imported separately to make sure they
     # have the tag that allows actions to type-hint services
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Repository\ClientRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['App\Entity\Client']
+
+    App\Repository\AccessTokenRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['App\Entity\AccessToken']
+
+    App\Repository\ScopeRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['App\Entity\Scope']
+
+    App\Repository\UserRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['App\Entity\User']
+
+    App\Repository\RefreshTokenRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['App\Entity\RefreshToken']
+
+    App\Service\OauthServer:
+        class: App\Service\OauthServer
+        autowire: false
+        arguments:
+            - '@App\Repository\ClientRepository'
+            - '@App\Repository\AccessTokenRepository'
+            - '@App\Repository\ScopeRepository'
+            - '@App\Repository\UserRepository'
+            - '@App\Repository\RefreshTokenRepository'

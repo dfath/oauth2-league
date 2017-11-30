@@ -42,7 +42,7 @@ class ClientFixtures extends Fixture
         $this->entityManager->persist($instance);
         $this->entityManager->flush();
 
-        $slug = Slugger::slugify($identifier);
+        $slug = Slugger::slugify($name);
         $this->addReference($slug, $instance);
     }
 

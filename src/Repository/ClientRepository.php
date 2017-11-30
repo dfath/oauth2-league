@@ -2,10 +2,11 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
 use App\Entity\Client;
 
-class ClientRepository implements ClientRepositoryInterface
+class ClientRepository extends EntityRepository implements ClientRepositoryInterface
 {
     /**
      * Determine if the given client can handle the given grant type.
@@ -46,7 +47,7 @@ class ClientRepository implements ClientRepositoryInterface
         // return this client instance back out to the consuming methods and finish up.
 
         if ($mustValidateSecret &&
-            ! hash_equals($clientRecord->secret, (string) $clientSecret)) {
+            ! hash_equals($clientRecord->getSecret(), (string) $clientSecret)) {
             return;
         }
 

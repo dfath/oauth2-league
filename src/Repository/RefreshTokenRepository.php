@@ -2,12 +2,13 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;
 use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
 use App\Entity\RefreshToken;
 use App\Entity\AccessToken;
 
-class RefreshTokenRepository implements RefreshTokenRepositoryInterface
+class RefreshTokenRepository extends EntityRepository implements RefreshTokenRepositoryInterface
 {
     /**
      * {@inheritdoc}
