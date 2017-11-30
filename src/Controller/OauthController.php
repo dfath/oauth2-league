@@ -33,7 +33,6 @@ class OauthController extends Controller
         $psrResponse = $psr7Factory->createResponse($response);
 
         $server = $oauthServer->getServer();
-        // $server = $this->container->get('App\Service\OauthServer');
 
         $httpFoundationFactory = new HttpFoundationFactory();
 
@@ -43,21 +42,15 @@ class OauthController extends Controller
             $psrResponse = $server->respondToAccessTokenRequest($psrRequest, $psrResponse);
 
             return $httpFoundationFactory->createResponse($psrResponse);
+
         } catch (OAuthServerException $exception) {
 
             return new Response($exception->getMessage());
-            // All instances of OAuthServerException can be converted to a PSR-7 response
-            // dump($exception);
-            // return $exception->generateHttpResponse($response);
+
         } catch (\Exception $exception) {
 
-            // Catch unexpected exceptions
-            // dump($exception);
-            // $body = $response->getBody();
             return new Response($exception->getMessage());
-            // $body->write($exception->getMessage());
-            //
-            // return $response->withStatus(500)->withBody($body);
+
         }
 
         return new Response('Hello');

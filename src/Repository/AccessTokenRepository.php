@@ -14,7 +14,7 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenRepos
     /**
      * {@inheritdoc}
      */
-    public function persistNewAccessToken(AccessTokenEntityInterface $accessToken)
+    public function persistNewAccessToken(AccessTokenEntityInterface $accessTokenEntity)
     {
         // save the access token to a database
         $em = $this->getEntityManager();

@@ -70,6 +70,20 @@ class User implements UserEntityInterface, UserInterface, \Serializable
     protected $updatedAt;
 
     /**
+     * Set the value of Id
+     *
+     * @param mixed id
+     *
+     * @return self
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->email = $identifier;
+
+        return $this;
+    }
+
+    /**
      * Return the user's identifier.
      *
      * @return mixed

@@ -28,6 +28,8 @@ class ScopeRepository extends EntityRepository implements ScopeRepositoryInterfa
     public function getScopeEntityByIdentifier($scopeIdentifier)
     {
 
+        return $this->findOneByIdentifier($scopeIdentifier);
+
         if (!$this->hasScope($scopeIdentifier)) {
             return;
         }

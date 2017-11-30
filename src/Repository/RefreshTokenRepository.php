@@ -13,7 +13,7 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
     /**
      * {@inheritdoc}
      */
-    public function persistNewRefreshToken(RefreshTokenEntityInterface $refreshTokenEntityInterface)
+    public function persistNewRefreshToken(RefreshTokenEntityInterface $refreshTokenEntity)
     {
         // persist the refresh token in a database
         $em = $this->getEntityManager();
@@ -27,6 +27,8 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
         $refreshToken->setAccessToken($accessToken);
         $refreshToken->setRevoked(false);
         $refreshToken->setExpiresAt($refreshTokenEntity->getExpiryDateTime());
+        $refreshToken->setCreatedAt(new \DateTime);
+        $refreshToken->setUpdatedAt(new \DateTime);
 
         $em->persist($refreshToken);
         $em->flush();

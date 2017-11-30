@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Entities\ScopeEntityInterface;
 use League\OAuth2\Server\Entities\Traits\AccessTokenTrait;
@@ -252,6 +253,36 @@ class AccessToken implements AccessTokenEntityInterface
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setClient(ClientEntityInterface $client)
+    {
+        $this->client = $client;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getScopes()
+    {
+        return $this->scopes;
+    }
+
+    /**
+     * Set the value of Scopes
+     *
+     * @param mixed scopes
+     *
+     * @return self
+     */
+    public function setScopes(ArrayCollection $scopes)
+    {
+        $this->scopes = $scopes;
 
         return $this;
     }

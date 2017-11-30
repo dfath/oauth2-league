@@ -21,11 +21,12 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
     ) {
         $user = $this->loadUserByUsername($username);
         if (!$user) {
+            dump('a');
             return;
         }
 
         // Verifies that a password matches a hash BCrypt
-        if (!password_verify($user->getPassword(), $password)) {
+        if (!password_verify($password, $user->getPassword())) {
             return;
         }
 
